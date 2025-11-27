@@ -1,159 +1,129 @@
-'use strict';
+/* Minimal page-switching + UI helpers for the portfolio
+   - works with data-nav-link and data-page attributes from the HTML I gave you
+   - lazy-loads the resume PDF only when Resume page is opened
+*/
 
+(() => {
+  // helper
+  const $ = (s, root = document) => root.querySelector(s);
+  const $$ = (s, root = document) => Array.from(root.querySelectorAll(s));
 
+  // NAVIGATION: switch data-page sections when nav buttons clicked
+  function initNav() {
+    const navButtons = $$('[data-nav-link]');
+    const pages = $$('[data-page]');
 
-// element toggle function
-const elementToggleFunc = function (elem) { elem.classList.toggle("active"); }
+    navButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // active button
+        navButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
 
+        const pageName = btn.textContent.trim().toLowerCase();
+        // find matching page by data-page (exact match with lowercased article data-page values)
+        pages.forEach(p => {
+          if ((p.getAttribute('data-page') || '').toLowerCase() === pageName) {
+            p.classList.add('active');
+            // lazy-load resume when page opened
+            if (pageName === 'resume') lazyLoadResume();
+          } else {
+            p.classList.remove('active');
+          }
+        });
 
-
-// sidebar variables
-const sidebar = document.querySelector("[data-sidebar]");
-const sidebarBtn = document.querySelector("[data-sidebar-btn]");
-
-// sidebar toggle functionality for mobile
-sidebarBtn.addEventListener("click", function () { elementToggleFunc(sidebar); });
-
-
-
-// testimonials variables
-const testimonialsItem = document.querySelectorAll("[data-testimonials-item]");
-const modalContainer = document.querySelector("[data-modal-container]");
-const modalCloseBtn = document.querySelector("[data-modal-close-btn]");
-const overlay = document.querySelector("[data-overlay]");
-
-// modal variable
-const modalImg = document.querySelector("[data-modal-img]");
-const modalTitle = document.querySelector("[data-modal-title]");
-const modalText = document.querySelector("[data-modal-text]");
-
-// modal toggle function
-const testimonialsModalFunc = function () {
-  modalContainer.classList.toggle("active");
-  overlay.classList.toggle("active");
-}
-
-// add click event to all modal items
-for (let i = 0; i < testimonialsItem.length; i++) {
-
-  testimonialsItem[i].addEventListener("click", function () {
-
-    modalImg.src = this.querySelector("[data-testimonials-avatar]").src;
-    modalImg.alt = this.querySelector("[data-testimonials-avatar]").alt;
-    modalTitle.innerHTML = this.querySelector("[data-testimonials-title]").innerHTML;
-    modalText.innerHTML = this.querySelector("[data-testimonials-text]").innerHTML;
-
-    testimonialsModalFunc();
-
-  });
-
-}
-
-// add click event to modal close button
-modalCloseBtn.addEventListener("click", testimonialsModalFunc);
-overlay.addEventListener("click", testimonialsModalFunc);
-
-
-
-// custom select variables
-const select = document.querySelector("[data-select]");
-const selectItems = document.querySelectorAll("[data-select-item]");
-const selectValue = document.querySelector("[data-selecct-value]");
-const filterBtn = document.querySelectorAll("[data-filter-btn]");
-
-select.addEventListener("click", function () { elementToggleFunc(this); });
-
-// add event in all select items
-for (let i = 0; i < selectItems.length; i++) {
-  selectItems[i].addEventListener("click", function () {
-
-    let selectedValue = this.innerText.toLowerCase();
-    selectValue.innerText = this.innerText;
-    elementToggleFunc(select);
-    filterFunc(selectedValue);
-
-  });
-}
-
-// filter variables
-const filterItems = document.querySelectorAll("[data-filter-item]");
-
-const filterFunc = function (selectedValue) {
-
-  for (let i = 0; i < filterItems.length; i++) {
-
-    if (selectedValue === "all") {
-      filterItems[i].classList.add("active");
-    } else if (selectedValue === filterItems[i].dataset.category) {
-      filterItems[i].classList.add("active");
-    } else {
-      filterItems[i].classList.remove("active");
-    }
-
+        // scroll top for accessibility
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    });
   }
 
-}
+  // SIDEBAR: show/hide contact block
+  function initSidebar() {
+    const sbBtn = $('[data-sidebar-btn]');
+    const sbMore = $('.sidebar-info_more');
+    if (!sbBtn || !sbMore) return;
+    sbBtn.addEventListener('click', () => {
+      sbMore.classList.toggle('show'); // style .show in CSS if you want animation
+    });
+  }
 
-// add event in all filter button items for large screen
-let lastClickedBtn = filterBtn[0];
+  // FILTERS: simple project filter support (keeps original behavior)
+  function initFilters() {
+    const filterBtns = $$('[data-filter-btn]');
+    const projects = $$('[data-filter-item]');
 
-for (let i = 0; i < filterBtn.length; i++) {
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
 
-  filterBtn[i].addEventListener("click", function () {
+        const category = btn.textContent.trim().toLowerCase();
+        projects.forEach(p => {
+          const cat = (p.getAttribute('data-category') || '').toLowerCase();
+          if (category === 'all' || cat.includes(category)) {
+            p.style.display = '';
+          } else {
+            p.style.display = 'none';
+          }
+        });
+      });
+    });
 
-    let selectedValue = this.innerText.toLowerCase();
-    selectValue.innerText = this.innerText;
-    filterFunc(selectedValue);
+    // optional: wire the select-list items if present
+    const selectItems = $$('[data-select-item]');
+    selectItems.forEach(item => {
+      item.addEventListener('click', (e) => {
+        const parent = item.closest('.filter-select-box');
+        const selectValue = parent && parent.querySelector('[data-selecct-value]');
+        if (selectValue) selectValue.textContent = item.textContent.trim();
+        // trigger corresponding filter button (if exists)
+        const txt = item.textContent.trim().toLowerCase();
+        const match = filterBtns.find(b => b.textContent.trim().toLowerCase() === txt);
+        if (match) match.click();
+      });
+    });
+  }
 
-    lastClickedBtn.classList.remove("active");
-    this.classList.add("active");
-    lastClickedBtn = this;
+  // Lazy-load the resume PDF only when user opens Resume page
+  function lazyLoadResume() {
+    // look for object with data set to placeholder or blank
+    const obj = $('article.resume object') || $('article.resume iframe');
+    if (!obj) return;
 
-  });
+    // If already loaded, skip
+    const current = obj.getAttribute('data-loaded');
+    if (current === 'true') return;
 
-}
-
-
-
-// contact form variables
-const form = document.querySelector("[data-form]");
-const formInputs = document.querySelectorAll("[data-form-input]");
-const formBtn = document.querySelector("[data-form-btn]");
-
-// add event to all form input field
-for (let i = 0; i < formInputs.length; i++) {
-  formInputs[i].addEventListener("input", function () {
-
-    // check form validation
-    if (form.checkValidity()) {
-      formBtn.removeAttribute("disabled");
-    } else {
-      formBtn.setAttribute("disabled", "");
-    }
-
-  });
-}
-
-
-
-// page navigation variables
-const navigationLinks = document.querySelectorAll("[data-nav-link]");
-const pages = document.querySelectorAll("[data-page]");
-
-// add event to all nav link
-for (let i = 0; i < navigationLinks.length; i++) {
-  navigationLinks[i].addEventListener("click", function () {
-
-    for (let i = 0; i < pages.length; i++) {
-      if (this.innerHTML.toLowerCase() === pages[i].dataset.page) {
-        pages[i].classList.add("active");
-        navigationLinks[i].classList.add("active");
-        window.scrollTo(0, 0);
-      } else {
-        pages[i].classList.remove("active");
-        navigationLinks[i].classList.remove("active");
+    // prefer to set data attribute of object
+    const pdfPath = './assets/files/Koushik_Kolla_Resume_Up.pdf';
+    try {
+      if (obj.tagName.toLowerCase() === 'object') {
+        obj.setAttribute('data', pdfPath);
+      } else if (obj.tagName.toLowerCase() === 'iframe') {
+        obj.setAttribute('src', pdfPath);
       }
+      obj.setAttribute('data-loaded', 'true');
+      // also ensure download link exists (no-op if present)
+      const dl = document.querySelector('a[download][href$=".pdf"]');
+      if (dl) dl.setAttribute('href', pdfPath);
+    } catch (e) {
+      // ignore
+      console.warn('Could not lazy-load resume PDF', e);
     }
+  }
 
+  // INITIALIZE
+  document.addEventListener('DOMContentLoaded', () => {
+    initNav();
+    initSidebar();
+    initFilters();
+
+    // If the page loads on a hash like #resume, open that page
+    const hash = (location.hash || '').replace('#','').toLowerCase();
+    if (hash) {
+      const btn = Array.from($$('[data-nav-link]')).find(b => b.textContent.trim().toLowerCase() === hash);
+      if (btn) btn.click();
+    }
   });
-}
+
+})();
