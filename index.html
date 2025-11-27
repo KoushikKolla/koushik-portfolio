@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Koushik Kolla — Portfolio & Resume</title>
+
+  <!-- Favicon (optional) -->
+  <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon" />
+
+  <!-- Custom CSS (keep your existing stylesheet or use one you have) -->
+  <link rel="stylesheet" href="./assets/css/style.css" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Meta -->
+  <meta name="description" content="Koushik Kolla — Full Stack Developer & ML Enthusiast. Portfolio, resume and contact.">
+</head>
+
+<body>
+  <!--
+    IMPORTANT: place the following files in your project folders:
+    1) ./assets/files/Koushik_Kolla_Resume_Up.pdf   <-- your PDF resume (uploaded)
+    2) ./assets/images/my-avatar.png                <-- avatar image
+    3) ./assets/images/project-evoting.jpg          <-- screenshot for evoting
+    4) ./assets/images/project-library.jpg          <-- screenshot for library
+    5) ./assets/images/project-expense.jpg          <-- screenshot for expense tracker
+    6) ./assets/css/style.css                       <-- your stylesheet
+    7) ./assets/js/script.js                        <-- existing site JS (page switching)
+  -->
+
+  <main>
+    <!-- SIDEBAR -->
+    <aside class="sidebar" data-sidebar>
+      <div class="sidebar-info">
+        <figure class="avatar-box">
+          <img src="./assets/images/my-avatar.png" alt="Koushik Kolla" width="88" />
+        </figure>
+
+        <div class="info-content">
+          <h1 class="name" title="Koushik Kolla">KOUSHIK KOLLA</h1>
+          <p class="title">Software Engineer | Full-Stack & ML Enthusiast</p>
+        </div>
+
+        <button class="info_more-btn" data-sidebar-btn>
+          <span>Show Contacts</span>
+          <ion-icon name="chevron-down"></ion-icon>
+        </button>
+      </div>
+
+      <div class="sidebar-info_more">
+        <div class="separator"></div>
+
+        <ul class="contacts-list">
+          <li class="contact-item">
+            <div class="icon-box"><ion-icon name="mail-outline"></ion-icon></div>
+            <div class="contact-info">
+              <p class="contact-title">Email</p>
+              <a class="contact-link" href="mailto:koushik1ga22is082@gmail.com">koushik1ga22is082@gmail.com</a>
+            </div>
+          </li>
+
+          <li class="contact-item">
+            <div class="icon-box"><ion-icon name="phone-portrait-outline"></ion-icon></div>
+            <div class="contact-info">
+              <p class="contact-title">Phone</p>
+              <a class="contact-link" href="tel:+917483377571">+91 74833 77571</a>
+            </div>
+          </li>
+
+          <li class="contact-item">
+            <div class="icon-box"><ion-icon name="calendar-outline"></ion-icon></div>
+            <div class="contact-info">
+              <p class="contact-title">Birthday</p>
+              <time datetime="2004-08-13">August 13, 2004</time>
+            </div>
+          </li>
+
+          <li class="contact-item">
+            <div class="icon-box"><ion-icon name="location-outline"></ion-icon></div>
+            <div class="contact-info">
+              <p class="contact-title">Location</p>
+              <address>Bengaluru, Karnataka, India</address>
+            </div>
+          </li>
+        </ul>
+
+        <div class="separator"></div>
+
+        <ul class="social-list">
+          <li class="social-item">
+            <a class="social-link" href="https://github.com/KoushikKolla" target="_blank" rel="noreferrer">
+              <ion-icon name="logo-github"></ion-icon>
+            </a>
+          </li>
+
+          <li class="social-item">
+            <a class="social-link" href="https://www.linkedin.com/in/koushik-kolla-605632249/" target="_blank" rel="noreferrer">
+              <ion-icon name="logo-linkedin"></ion-icon>
+            </a>
+          </li>
+
+          <li class="social-item">
+            <a class="social-link" href="#" target="_blank" rel="noreferrer">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </a>
+          </li>
+
+          <li class="social-item">
+            <a class="social-link" href="#" target="_blank" rel="noreferrer">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+      <!-- NAVBAR -->
+      <nav class="navbar">
+        <ul class="navbar-list">
+          <li class="navbar-item"><button class="navbar-link active" data-nav-link>About</button></li>
+          <li class="navbar-item"><button class="navbar-link" data-nav-link>Resume</button></li>
+          <li class="navbar-item"><button class="navbar-link" data-nav-link>Portfolio</button></li>
+          <li class="navbar-item"><button class="navbar-link" data-nav-link>Blog</button></li>
+          <li class="navbar-item"><button class="navbar-link" data-nav-link>Contact</button></li>
+        </ul>
+      </nav>
+
+      <!-- ABOUT -->
+      <article class="about active" data-page="about">
+        <header>
+          <h2 class="h2 article-title">About me</h2>
+        </header>
+
+        <section class="about-text">
+          <p>
+            I'm a B.E. Information Science student (VTU) based in Bengaluru. I build full-stack web applications and
+            machine-learning solutions that solve real-world problems. I enjoy combining frontend interfaces,
+            backend APIs, and ML/Computer-Vision to produce end-to-end products — for example a gesture-based ML
+            E-Voting system using facial authentication and real-time hand-tracking.
+          </p>
+        </section>
+
+        <section class="service">
+          <h3 class="h3 service-title">What I'm doing</h3>
+
+          <ul class="service-list">
+            <li class="service-item">
+              <div class="service-icon-box"><img src="./assets/images/icon-dev.svg" alt="dev" width="40" /></div>
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Full-Stack Development</h4>
+                <p class="service-item-text">React, Node, Express, MongoDB — scalable web apps and secure APIs.</p>
+              </div>
+            </li>
+
+            <li class="service-item">
+              <div class="service-icon-box"><img src="./assets/images/icon-app.svg" alt="app" width="40" /></div>
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Machine Learning & Computer Vision</h4>
+                <p class="service-item-text">OpenCV, MediaPipe, ML models for automation-style interaction and CV tasks.</p>
+              </div>
+            </li>
+
+            <li class="service-item">
+              <div class="service-icon-box"><img src="./assets/images/icon-design.svg" alt="iot" width="40" /></div>
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">IoT & Embedded</h4>
+                <p class="service-item-text">ESP32, sensor basics and IoT-inspired interfaces for real-world prototypes.</p>
+              </div>
+            </li>
+
+            <li class="service-item">
+              <div class="service-icon-box"><img src="./assets/images/icon-photo.svg" alt="data" width="40" /></div>
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Data & Analytics</h4>
+                <p class="service-item-text">Tableau, Chart.js, Pandas — analytics and reporting for product insights.</p>
+              </div>
+            </li>
+          </ul>
+        </section>
+      </article>
+
+      <!-- RESUME -->
+      <article class="resume" data-page="resume">
+        <header>
+          <h2 class="h2 article-title">Resume</h2>
+        </header>
+
+        <section style="margin-bottom:18px;">
+          <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
+            <a href="./assets/files/Koushik_Kolla_Resume_Up.pdf"
+               download="Koushik_Kolla_Resume_Up.pdf"
+               class="form-btn"
+               style="display:inline-flex;align-items:center;gap:8px;padding:8px 12px;background:#1f6feb;color:#fff;border-radius:6px;text-decoration:none;">
+              <ion-icon name="download-outline"></ion-icon>
+              <span>Download Resume (PDF)</span>
+            </a>
+
+            <a href="./assets/files/Koushik_Kolla_Resume_Up.pdf" target="_blank" rel="noopener noreferrer"
+               style="color:#333;text-decoration:underline;font-size:0.95rem;">
+              Open Resume in New Tab
+            </a>
+
+            <div style="margin-left:auto;color:#666;font-size:0.95rem;">Scroll to view the preview below.</div>
+          </div>
+        </section>
+
+        <section style="min-height:450px;margin-top:10px;">
+          <object data="./assets/files/Koushik_Kolla_Resume_Up.pdf" type="application/pdf" width="100%" height="720"
+                  aria-label="Koushik Kolla Resume">
+            <iframe src="./assets/files/Koushik_Kolla_Resume_Up.pdf" width="100%" height="720" style="border:none;">
+              Your browser does not support embedded PDFs.
+              <a href="./assets/files/Koushik_Kolla_Resume_Up.pdf" target="_blank">Open the resume in a new tab</a>
+            </iframe>
+          </object>
+        </section>
+      </article>
+
+      <!-- PORTFOLIO -->
+      <article class="portfolio" data-page="portfolio">
+        <header><h2 class="h2 article-title">Portfolio</h2></header>
+
+        <section class="projects">
+          <ul class="filter-list">
+            <li class="filter-item"><button class="active" data-filter-btn>All</button></li>
+            <li class="filter-item"><button data-filter-btn>Web development</button></li>
+            <li class="filter-item"><button data-filter-btn>Applications</button></li>
+            <li class="filter-item"><button data-filter-btn>ML / CV</button></li>
+          </ul>
+
+          <div class="filter-select-box">
+            <button class="filter-select" data-select>
+              <div class="select-value" data-selecct-value>Select category</div>
+              <div class="select-icon"><ion-icon name="chevron-down"></ion-icon></div>
+            </button>
+
+            <ul class="select-list">
+              <li class="select-item"><button data-select-item>All</button></li>
+              <li class="select-item"><button data-select-item>Web development</button></li>
+              <li class="select-item"><button data-select-item>Applications</button></li>
+              <li class="select-item"><button data-select-item>ML / CV</button></li>
+            </ul>
+          </div>
+
+          <ul class="project-list">
+            <li class="project-item active" data-filter-item data-category="ML / CV">
+              <a href="#" title="Gesture-Based E-Voting System">
+                <figure class="project-img">
+                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
+                  <img src="./assets/images/project-evoting.jpg" alt="Gesture E-Voting" loading="lazy" />
+                </figure>
+                <h3 class="project-title">Gesture-Based E-Voting System</h3>
+                <p class="project-category">Python · OpenCV · MediaPipe · SQL</p>
+              </a>
+            </li>
+
+            <li class="project-item active" data-filter-item data-category="Applications">
+              <a href="#" title="Automated Library Resource Management">
+                <figure class="project-img">
+                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
+                  <img src="./assets/images/project-library.jpg" alt="Library System" loading="lazy" />
+                </figure>
+                <h3 class="project-title">Automated Library Resource Management</h3>
+                <p class="project-category">Java · JDBC · MySQL</p>
+              </a>
+            </li>
+
+            <li class="project-item active" data-filter-item data-category="Web development">
+              <a href="#" title="Smart Expense Tracker">
+                <figure class="project-img">
+                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
+                  <img src="./assets/images/project-expense.jpg" alt="Expense Tracker" loading="lazy" />
+                </figure>
+                <h3 class="project-title">Smart Expense Tracker with Analytics</h3>
+                <p class="project-category">React · Node · MongoDB · Chart.js</p>
+              </a>
+            </li>
+          </ul>
+        </section>
+      </article>
+
+      <!-- BLOG (placeholder) -->
+      <article class="blog" data-page="blog">
+        <header><h2 class="h2 article-title">Blog</h2></header>
+        <section class="blog-posts">
+          <ul class="blog-posts-list">
+            <li class="blog-post-item">
+              <a href="#">
+                <figure class="blog-banner-box"><img src="./assets/images/blog-1.jpg" alt="blog" loading="lazy" /></figure>
+                <div class="blog-content">
+                  <div class="blog-meta"><p class="blog-category">Dev</p><span class="dot"></span><time datetime="2025-11-27">Nov 27, 2025</time></div>
+                  <h3 class="h3 blog-item-title">Building Gesture Interaction</h3>
+                  <p class="blog-text">Short post about MediaPipe hand-tracking and gesture UX.</p>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </section>
+      </article>
+
+      <!-- CONTACT -->
+      <article class="contact" data-page="contact">
+        <header><h2 class="h2 article-title">Contact</h2></header>
+
+        <section class="mapbox" data-mapbox>
+          <figure>
+            <!-- Replace the map source with your own location if needed -->
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18" width="400" height="300" loading="lazy"></iframe>
+          </figure>
+        </section>
+
+        <section class="contact-form">
+          <h3 class="h3 form-title">Contact Form</h3>
+          <form action="#" class="form" data-form>
+            <div class="input-wrapper">
+              <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input>
+              <input type="email" name="email" class="form-input" placeholder="Email address" required data-form-input>
+            </div>
+            <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
+            <button class="form-btn" type="submit" data-form-btn>
+              <ion-icon name="paper-plane"></ion-icon><span>Send Message</span>
+            </button>
+          </form>
+
+          <p style="margin-top:12px;font-size:0.95rem;">
+            Or email me directly at <a href="mailto:koushik1ga22is082@gmail.com">koushik1ga22is082@gmail.com</a>
+          </p>
+        </section>
+      </article>
+
+    </div>
+  </main>
+
+  <!-- Custom JS (page switching + interactions) -->
+  <script src="./assets/js/script.js"></script>
+
+  <!-- Ionicons -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
