@@ -37,7 +37,7 @@ window.portfolioData = {
             { link: "https://github.com/KoushikKolla", icon: "logo-github" },
             { link: "https://www.linkedin.com/in/koushik-kolla-605632249/", icon: "logo-linkedin" },
             { link: "#", icon: "logo-twitter" },
-            { link: "#", icon: "logo-instagram" }
+            { link: "https://www.instagram.com/koushik_kolla?igsh=Y210bWRmN3pvOHM=", icon: "logo-instagram" }
         ]
     },
 
@@ -78,8 +78,8 @@ window.portfolioData = {
     },
 
     resume: {
-        url: "./assets/files/Koushik_Kolla_Resume_Up.pdf",
-        filename: "Koushik_Kolla_Resume_Up.pdf"
+        url: "./assets/files/Koushik_Kolla_Portfolio.pdf",
+        filename: "Koushik_Kolla_Portfolio.pdf"
     },
 
     skills: [
@@ -143,7 +143,7 @@ window.portfolioData = {
             category: "ML / AI",
             image: "./assets/images/image1.png", // Using standard ML placeholder
             technologies: "Python · Q-Learning · NumPy",
-            link: "https://github.com/KoushikKolla",
+            link: "https://github.com/KoushikKolla/tic-tac-toe-rl",
             description: "Developed an intelligent Tic-Tac-Toe agent using Q-Learning (Reinforcement Learning). The AI learns optimal strategies by playing thousands of games against itself, demonstrating reinforcement learning principles and state-value estimation.",
             techStack: [
                 { icon: "logo-python", name: "Python" },
@@ -152,39 +152,5 @@ window.portfolioData = {
             ]
         }
     ],
-    blog: [
-        {
-            title: "Today I Learned: System Design & Scalability",
-            category: "Daily Log",
-            date: "Feb 17, 2026",
-            dateTime: "2026-02-17",
-            // No image needed for quick daily updates!
-            desc: `
-        <p>Day 2 – Java Full Stack Web Development | Building Strong Foundations 💻
-Today’s session focused on understanding computers before coding.
-✔ Evolution of Computers
- ✔ CPU, RAM & Hard Disk (Saving vs Loading)
- ✔ Why computers understand 0 & 1
- ✔ Machine, Assembly & High-Level Languages
- ✔ Role of Compiler
- ✔ Importance of GPU & AI
-📌 Programming is not memorizing syntax — it’s understanding how the system works.
-This foundation sets the stage for Core Java & Full Stack Development 🚀
- Excited to start coding from tomorrow!</p>`
-        },
 
-        {
-            title: "Today I Learned: System Design & Scalability",
-            category: "Daily Log",
-            date: "Feb 17, 2026",
-            dateTime: "2026-02-17",
-            // No image needed for quick daily updates!
-            desc: `
-                <p>Spent the day diving deep into horizontal vs vertical scaling. Vertical scaling (scaling up) involves adding more power to your existing machine, while horizontal scaling (scaling out) involves adding more machines to your pool of resources.</p>
-                
-                <p>I also implemented a basic load balancer in Node.js to understand round-robin distribution. It was fascinating to see how requests were distributed across different simulated servers!</p>
-            `,
-            link: "#"
-        }
-    ]
 };

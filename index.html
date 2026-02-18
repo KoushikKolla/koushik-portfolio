@@ -88,7 +88,7 @@
           <li class="navbar-item"><button class="navbar-link" data-nav-link>Resume</button></li>
           <li class="navbar-item"><button class="navbar-link" data-nav-link>Skills</button></li>
           <li class="navbar-item"><button class="navbar-link" data-nav-link>Portfolio</button></li>
-          <li class="navbar-item"><button class="navbar-link" data-nav-link>Blog</button></li>
+
           <li class="navbar-item"><button class="navbar-link" data-nav-link>Contact</button></li>
         </ul>
       </nav>
@@ -114,29 +114,24 @@
           <h2 class="h2 article-title">Resume</h2>
         </header>
 
-        <section style="margin-bottom:18px;">
-          <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
-            <a href="./assets/files/Koushik_Kolla_Resume_Up.pdf" download="Koushik_Kolla_Resume_Up.pdf" class="form-btn"
-              style="display:inline-flex;align-items:center;gap:8px;padding:8px 12px;background:#1f6feb;color:#fff;border-radius:6px;text-decoration:none;">
-              <ion-icon name="download-outline"></ion-icon>
-              <span>Download Resume (PDF)</span>
-            </a>
 
-            <a href="./assets/files/Koushik_Kolla_Resume_Up.pdf" target="_blank" rel="noopener noreferrer"
-              style="color:#333;text-decoration:underline;font-size:0.95rem;">
-              Open Resume in New Tab
-            </a>
 
-            <div style="margin-left:auto;color:#666;font-size:0.95rem;">Scroll to view the preview below.</div>
-          </div>
+        <section style="display: flex; justify-content: flex-end; margin-bottom: 20px;">
+          <a href="./assets/files/Koushik_Kolla_Portfolio.pdf" download="Koushik_Kolla_Portfolio.pdf" class="form-btn"
+            style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; color: var(--orange-yellow-crayola);">
+            <ion-icon name="cloud-download-outline"></ion-icon>
+            <span>Download Resume</span>
+          </a>
         </section>
 
-        <section style="min-height:450px;margin-top:10px;">
-          <object data="./assets/files/Koushik_Kolla_Resume_Up.pdf" type="application/pdf" width="100%" height="720"
-            aria-label="Koushik Kolla Resume">
-            <iframe src="./assets/files/Koushik_Kolla_Resume_Up.pdf" width="100%" height="720" style="border:none;">
+        <section
+          style="height: 75vh; width: 100%; overflow: hidden; border-radius: 12px; border: 1px solid var(--jet);">
+          <object data="./assets/files/Koushik_Kolla_Portfolio.pdf#toolbar=0&navpanes=0&scrollbar=0"
+            type="application/pdf" width="100%" height="100%" aria-label="Koushik Kolla Resume">
+            <iframe src="./assets/files/Koushik_Kolla_Portfolio.pdf#toolbar=0&navpanes=0&scrollbar=0" width="100%"
+              height="100%" style="border:none;">
               Your browser does not support embedded PDFs.
-              <a href="./assets/files/Koushik_Kolla_Resume_Up.pdf" target="_blank">Open the resume in a new tab</a>
+              <a href="./assets/files/Koushik_Kolla_Portfolio.pdf" target="_blank">Download the resume</a>
             </iframe>
           </object>
         </section>
@@ -168,15 +163,7 @@
         </section>
       </article>
 
-      <!-- BLOG (placeholder) -->
-      <article class="blog" data-page="blog">
-        <header>
-          <h2 class="h2 article-title">Blog</h2>
-        </header>
-        <section class="blog-posts">
-          <ul class="blog-posts-list" id="blog-posts-list"></ul>
-        </section>
-      </article>
+
 
       <!-- CONTACT -->
       <article class="contact" data-page="contact">
@@ -187,7 +174,10 @@
         <section class="mapbox" data-mapbox>
           <figure>
             <!-- Replace the map source with your own location if needed -->
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18" width="400" height="300" loading="lazy"></iframe>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d248849.886539092!2d77.49085515241516!3d12.95384772557775!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1670c9b44e6d%3A0xf8dfc3e8517e4fe0!2sBengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1645516901962!5m2!1sen!2sin"
+              width="400" height="300" loading="lazy" style="border:0;" allowfullscreen=""
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
           </figure>
         </section>
 
@@ -205,7 +195,7 @@
             </button>
           </form>
 
-          <p style="margin-top:12px;font-size:0.95rem;">
+          <p style="margin-top:12px;font-size:0.95rem;color:var(--light-gray);">
             Or email me directly at <a href="mailto:koushikkolla51@gmail.com"
               class="form-email-link">koushikkolla51@gmail.com</a>
           </p>

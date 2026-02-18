@@ -206,22 +206,7 @@
     //   });
     // });
 
-    // --- Blog ---
-    const blogList = $('#blog-posts-list');
-    if (blogList) {
-      blogList.innerHTML = d.blog.map(item => `
-        <li class="blog-post-item">
-          <a href="${item.link}">
-            ${item.image ? `<figure class="blog-banner-box"><img src="${item.image}" alt="${item.title}" loading="lazy" /></figure>` : ''}
-            <div class="blog-content">
-              <div class="blog-meta"><p class="blog-category">${item.category}</p><span class="dot"></span><time datetime="${item.dateTime}">${item.date}</time></div>
-              <h3 class="h3 blog-item-title">${item.title}</h3>
-              <div class="blog-text">${item.desc}</div>
-            </div>
-          </a>
-        </li>
-      `).join('');
-    }
+
   }
 
   // NAVIGATION: switch data-page sections when nav buttons clicked
@@ -317,9 +302,9 @@
 
     try {
       if (obj.tagName.toLowerCase() === 'object') {
-        obj.setAttribute('data', pdfPath);
+        obj.setAttribute('data', pdfPath + '#toolbar=0&navpanes=0&scrollbar=0');
       } else if (obj.tagName.toLowerCase() === 'iframe') {
-        obj.setAttribute('src', pdfPath);
+        obj.setAttribute('src', pdfPath + '#toolbar=0&navpanes=0&scrollbar=0');
       }
       obj.setAttribute('data-loaded', 'true');
       // also ensure download link exists (no-op if present)
