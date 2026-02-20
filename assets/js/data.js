@@ -78,8 +78,8 @@ window.portfolioData = {
     },
 
     resume: {
-        url: "./assets/files/Koushik_Kolla_Portfolio.pdf",
-        filename: "Koushik_Kolla_Portfolio.pdf"
+        url: "./assets/files/Koushik_Kolla_Intern.pdf",
+        filename: "Koushik_Kolla_Intern.pdf"
     },
 
     skills: [

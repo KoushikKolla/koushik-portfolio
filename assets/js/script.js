@@ -303,6 +303,11 @@
     try {
       if (obj.tagName.toLowerCase() === 'object') {
         obj.setAttribute('data', pdfPath + '#toolbar=0&navpanes=0&scrollbar=0');
+        // Update inner iframe as well for fallback
+        const innerIframe = obj.querySelector('iframe');
+        if (innerIframe) {
+          innerIframe.setAttribute('src', pdfPath + '#toolbar=0&navpanes=0&scrollbar=0');
+        }
       } else if (obj.tagName.toLowerCase() === 'iframe') {
         obj.setAttribute('src', pdfPath + '#toolbar=0&navpanes=0&scrollbar=0');
       }
