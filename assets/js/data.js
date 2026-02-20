@@ -43,15 +43,15 @@ window.portfolioData = {
 
     about: {
         description: `
-            <p>I am a motivated engineering student currently pursuing my undergraduate degree, with a strong interest in software development and problem-solving. I enjoy building applications that combine logic, creativity, and real-world impact, and I am continuously working to strengthen my fundamentals in computer science.</p>
+            <p>I am a motivated Engineering student currently pursuing my undergraduate degree, with a strong interest in software development and problem-solving. I enjoy building applications that combine logic, creativity, and real-world impact, and I am continuously working to strengthen my fundamentals in computer science.</p>
 
-            <p>My technical skill set includes Java, Python, and Web Development (HTML, CSS, JavaScript). I have hands-on experience working with databases, basic backend concepts, and modern development tools. Through academic and self-driven projects, I have built applications such as web-based systems, automation tools, and data-driven dashboards, which helped me understand end-to-end development and clean coding practices.</p>
+            <p>My Technical skill set includes Java, Python, and Web Development (HTML, CSS, JavaScript). I have hands-on experience working with databases, basic backend concepts, and modern development tools. Through academic and self-driven projects, I have built applications such as web-based systems, automation tools, and data-driven dashboards, which helped me understand end-to-end development and clean coding practices.</p>
 
-            <p>I have also explored internships, mini-projects, and practical labs that exposed me to teamwork, debugging, and structured problem-solving. These experiences taught me the importance of writing scalable code and learning from feedback.</p>
+            <p>I have also explored Internships, mini-projects, and practical labs that exposed me to teamwork, debugging, and structured problem-solving. These experiences taught me the importance of writing scalable code and learning from feedback.</p>
 
-            <p>My career goal is to grow into a Software Engineer where I can contribute to impactful projects, learn from experienced professionals, and continuously improve my technical and communication skills. I am highly enthusiastic about learning new technologies, adapting to challenges, and staying updated with industry trends.</p>
+            <p>My Career goal is to grow into a Software Engineer where I can contribute to impactful projects, learn from experienced professionals, and continuously improve my technical and communication skills. I am highly enthusiastic about learning new technologies, adapting to challenges, and staying updated with industry trends.</p>
 
-            <p>I am currently open to internships and entry-level opportunities where I can apply my skills, gain real-world exposure, and add value to the organization.</p>
+            <p>I am currently open to Internships and entry-level opportunities where I can apply my skills, gain real-world exposure, and add value to the organization.</p>
         `,
         services: [
             {
