@@ -114,7 +114,42 @@
       `).join('');
     }
 
+    // --- Experience ---
+    const experienceList = $('#experience-list');
+    if (experienceList && d.experience) {
+      experienceList.innerHTML = d.experience.map(item => `
+        <li class="timeline-item">
+          <h4 class="h4 timeline-item-title">${item.title} <span class="timeline-company">— ${item.company}</span></h4>
+          <span>${item.period} &nbsp;|&nbsp; ${item.location}</span>
+          ${item.responsibilities ? `
+            <ul class="timeline-bullets">
+              ${item.responsibilities.map(r => `<li>${r}</li>`).join('')}
+            </ul>
+          ` : (item.text ? `<p class="timeline-text">${item.text}</p>` : '')}
+          ${item.technologies ? `
+            <div class="timeline-tech-stack">
+              ${item.technologies.map(t => `<span class="timeline-tech-badge">${t}</span>`).join('')}
+            </div>
+          ` : ''}
+        </li>
+      `).join('');
+    }
+
+    // --- Education ---
+    const educationList = $('#education-list');
+    if (educationList && d.education) {
+      educationList.innerHTML = d.education.map(item => `
+        <li class="timeline-item">
+          <h4 class="h4 timeline-item-title">${item.institution}</h4>
+          <span>${item.period} ${item.location ? `&nbsp;|&nbsp; ${item.location}` : ''}</span>
+          <p class="timeline-text" style="margin-top: 6px;">${item.degree}</p>
+          ${item.gpa ? `<p class="timeline-text" style="color: var(--vegas-gold); font-weight: var(--fw-500); margin-top: 4px;">GPA: ${item.gpa}</p>` : ''}
+        </li>
+      `).join('');
+    }
+
     // --- Skills ---
+
     const skillsList = $('#skills-list');
     if (skillsList && d.skills) {
       skillsList.innerHTML = d.skills.map(item => `
@@ -298,7 +333,7 @@
 
     // use data from script instead of hardcoded
     const d = window.portfolioData;
-    const pdfPath = d && d.resume ? d.resume.url : './assets/files/Koushik_Kolla_Resume_Up.pdf';
+    const pdfPath = d && d.resume ? d.resume.url : './assets/files/KOUSHIK_KOLLA_UPDATED.pdf';
 
     try {
       if (obj.tagName.toLowerCase() === 'object') {
@@ -313,10 +348,10 @@
       }
       obj.setAttribute('data-loaded', 'true');
       // also ensure download link exists (no-op if present)
-      const dl = document.querySelector('a[download][href$=".pdf"]');
+      const dl = document.querySelector('a[download][href$=".pdf"]') || document.querySelector('#resume-download-btn');
       if (dl && d && d.resume) {
         dl.setAttribute('href', pdfPath);
-        dl.setAttribute('download', d.resume.filename || 'resume.pdf');
+        dl.setAttribute('download', d.resume.filename || 'KOUSHIK_KOLLA_UPDATED.pdf');
       }
     } catch (e) {
       // ignore
@@ -331,11 +366,20 @@
     initSidebar();
     initFilters(); // Init filters after rendering elements
 
-    // If the page loads on a hash like #resume, open that page
+    // If the page loads on a hash like #resume or #experience, open that page
     const hash = (location.hash || '').replace('#', '').toLowerCase();
     if (hash) {
-      const btn = Array.from($$('[data-nav-link]')).find(b => b.textContent.trim().toLowerCase() === hash);
-      if (btn) btn.click();
+      if (hash === 'experience' || hash === 'education') {
+        const resumeBtn = Array.from($$('[data-nav-link]')).find(b => b.textContent.trim().toLowerCase() === 'resume');
+        if (resumeBtn) {
+          resumeBtn.click();
+          const target = $(`#${hash}-section`);
+          if (target) setTimeout(() => target.scrollIntoView({ behavior: 'smooth' }), 200);
+        }
+      } else {
+        const btn = Array.from($$('[data-nav-link]')).find(b => b.textContent.trim().toLowerCase() === hash);
+        if (btn) btn.click();
+      }
     }
   });
 
