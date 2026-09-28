@@ -86,7 +86,7 @@ window.portfolioData = {
         {
             title: "Software Engineering Apprentice",
             company: "Tieto",
-            period: "Apr 13, 2026 – Oct 9, 2026",
+            period: "Apr, 2026 – Oct, 2026",
             location: "Bengaluru, India",
             responsibilities: [
                 "Engineered backend microservices utilizing Java 21 and Spring Boot, adhering to enterprise design patterns, clean coding standards, and modular architecture.",
@@ -123,8 +123,8 @@ window.portfolioData = {
     ],
 
     resume: {
-        url: "./assets/files/KOUSHIK_KOLLA_UPDATED.pdf",
-        filename: "KOUSHIK_KOLLA_UPDATED.pdf"
+        url: "./assets/files/KOUSHIK_KOLLA_EVRY.pdf",
+        filename: "KOUSHIK_KOLLA_EVRY.pdf"
     },
 
     skills: [

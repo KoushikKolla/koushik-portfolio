@@ -333,7 +333,7 @@
 
     // use data from script instead of hardcoded
     const d = window.portfolioData;
-    const pdfPath = d && d.resume ? d.resume.url : './assets/files/KOUSHIK_KOLLA_UPDATED.pdf';
+    const pdfPath = d && d.resume ? d.resume.url : './assets/files/KOUSHIK_KOLLA_EVRY.pdf';
 
     try {
       if (obj.tagName.toLowerCase() === 'object') {
@@ -351,7 +351,7 @@
       const dl = document.querySelector('a[download][href$=".pdf"]') || document.querySelector('#resume-download-btn');
       if (dl && d && d.resume) {
         dl.setAttribute('href', pdfPath);
-        dl.setAttribute('download', d.resume.filename || 'KOUSHIK_KOLLA_UPDATED.pdf');
+        dl.setAttribute('download', d.resume.filename || 'KOUSHIK_KOLLA_EVRY.pdf');
       }
     } catch (e) {
       // ignore
